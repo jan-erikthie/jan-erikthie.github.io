@@ -47,7 +47,7 @@
     a:hover { color: #00b2b2; text-decoration: none; }
     .nav-links a:hover { color: #00b2b2; }
 
-    /* Header */
+    /* Header (same base as other pages) */
     .site-header {
       position: fixed;
       top: 0;
@@ -100,7 +100,6 @@
       border: none;
     }
 
-    /* Link for PDF*/
     .cv-mobile-link {
       display: none;
       text-align: center;
@@ -108,19 +107,16 @@
       margin-top: 30px;
     }
 
-    /* Same header behaviour as other pages on small screens */
+    /* Small phones header behaviour (same pattern as other pages) */
     @media (max-width: 767px) {
       body { padding-top: 135px; }
       .header-inner { padding: 10px 0 8px 0; }
       .brand { text-align: center; margin-bottom: 4px; }
       .nav-links { text-align: center; }
       .nav-links a { padding: 6px 8px; }
-     
-      .content { padding-left: 15px; padding-right: 15px; }
-
     }
 
-    /* PDF fallback for tablets/phones: hide inline viewer, show link */
+    /* PDF fallback for tablets/phones */
     @media (max-width: 1024px) {
       .cv-embed {
         display: none;
@@ -129,10 +125,17 @@
         display: block;
       }
     }
+
+    /* iPad/tablet alignment tweak ONLY for CV page */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .cv-page .header-inner {
+        padding-top: 60px; /* tweak this until it visually matches */
+      }
+    }
   </style>
 </head>
 
-<body>
+<body class="cv-page">
 
   <!-- Fixed header -->
   <header class="site-header">
@@ -174,14 +177,12 @@
 
         <h1 class="visually-hidden">CV</h1>
 
-        <!-- Desktop / large-screen viewer -->
         <iframe
           class="cv-embed"
           src="CV_Thie.pdf#view=FitH"
           title="CV of Jan-Erik Thie">
         </iframe>
 
-        <!-- iPad / mobile link -->
         <p class="cv-mobile-link">
           You can find my CV
           <a href="CV_Thie.pdf" target="_blank" rel="noopener">here</a>.
