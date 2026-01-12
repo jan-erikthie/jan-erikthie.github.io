@@ -35,19 +35,16 @@
   <meta name="msapplication-config" content="/browserconfig.xml">
 
   <style>
-    /* Base */
     body {
       background-color: white;
       font-size: 16px;
       padding-top: 136px;
     }
 
-    /* Links */
     a, a:visited, a[href^="mailto:"] { color: #8B0000; }
     a:hover { color: #00b2b2; text-decoration: none; }
     .nav-links a:hover { color: #00b2b2; }
 
-    /* Header (same base as other pages) */
     .site-header {
       position: fixed;
       top: 0;
@@ -92,6 +89,7 @@
       padding-right: 0;
     }
 
+    /* Desktop viewer */
     .cv-embed {
       display: block;
       width: 100%;
@@ -100,6 +98,7 @@
       border: none;
     }
 
+    /* Simple link (hidden on desktop by default) */
     .cv-mobile-link {
       display: none;
       text-align: center;
@@ -107,35 +106,37 @@
       margin-top: 30px;
     }
 
-    /* Small phones header behaviour (same pattern as other pages) */
-    @media (max-width: 767px) {
+    /* Fallback button (hidden by default on desktop) */
+    .cv-download {
+      display: none;
+      margin-top: 40px;
+      font-size: 18px;
+      padding: 12px 24px;
+    }
+
+    @media (max-width: 1024px) {
       body { padding-top: 135px; }
       .header-inner { padding: 10px 0 8px 0; }
       .brand { text-align: center; margin-bottom: 4px; }
       .nav-links { text-align: center; }
       .nav-links a { padding: 6px 8px; }
-    }
 
-    /* PDF fallback for tablets/phones */
-    @media (max-width: 1024px) {
+      /* On tablets/phones: hide inline viewer, show button */
       .cv-embed {
         display: none;
       }
       .cv-mobile-link {
         display: block;
       }
-    }
 
-    /* iPad/tablet alignment tweak ONLY for CV page */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .cv-page .header-inner {
-        padding-top: 60px; /* tweak this until it visually matches */
+      .cv-download {
+        display: inline-block;
       }
     }
   </style>
 </head>
 
-<body class="cv-page">
+<body>
 
   <!-- Fixed header -->
   <header class="site-header">
@@ -183,11 +184,10 @@
           title="CV of Jan-Erik Thie">
         </iframe>
 
+        <!-- Simple link for iPad / mobile -->
         <p class="cv-mobile-link">
-          You can find my CV
-          <a href="CV_Thie.pdf" target="_blank" rel="noopener">here</a>.
+          You can find my CV <a href="CV_Thie.pdf" target="_blank" rel="noopener">here</a>.
         </p>
-
       </div>
 
       <div class="col-md-1"></div>
