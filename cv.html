@@ -15,24 +15,6 @@
   <!-- Favicons -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
-  <link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <link rel="apple-touch-icon" href="/favicon-57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/favicon-72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/favicon-144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/favicon-60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/favicon-120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicon-76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
-  <meta name="msapplication-TileColor" content="#FFFFFF">
-  <meta name="msapplication-TileImage" content="/favicon-144.png">
-  <meta name="msapplication-config" content="/browserconfig.xml">
 
   <style>
     body {
@@ -62,10 +44,6 @@
       font-size: 25px;
       font-weight: 700;
       text-decoration: none;
-      line-height: 1.1;
-      display: inline-block;
-      padding-top: 6px;
-      padding-bottom: 2px;
     }
 
     .nav-links a {
@@ -73,8 +51,6 @@
       padding: 6px 10px;
       font-size: 17px;
       text-decoration: none;
-      display: inline-block;
-      line-height: 1.1;
     }
 
     .nav-links a.active {
@@ -82,7 +58,7 @@
       font-weight: 600;
     }
 
-    /* CV viewer */
+    /* CV Viewer */
     .cv-wrap {
       text-align: center;
       padding-left: 0;
@@ -98,7 +74,7 @@
       border: none;
     }
 
-    /* Simple link (hidden on desktop by default) */
+    /* Simple link for mobile/tablets */
     .cv-mobile-link {
       display: none;
       text-align: center;
@@ -106,31 +82,13 @@
       margin-top: 30px;
     }
 
-    /* Fallback button (hidden by default on desktop) */
-    .cv-download {
-      display: none;
-      margin-top: 40px;
-      font-size: 18px;
-      padding: 12px 24px;
-    }
-
+    /* Switch at iPad/tablet width */
     @media (max-width: 1024px) {
-      body { padding-top: 135px; }
-      .header-inner { padding: 10px 0 8px 0; }
-      .brand { text-align: center; margin-bottom: 4px; }
-      .nav-links { text-align: center; }
-      .nav-links a { padding: 6px 8px; }
-
-      /* On tablets/phones: hide inline viewer, show button */
       .cv-embed {
         display: none;
       }
       .cv-mobile-link {
         display: block;
-      }
-
-      .cv-download {
-        display: inline-block;
       }
     }
   </style>
@@ -178,16 +136,18 @@
 
         <h1 class="visually-hidden">CV</h1>
 
+        <!-- Desktop: Full inline PDF -->
         <iframe
           class="cv-embed"
           src="CV_Thie.pdf#view=FitH"
           title="CV of Jan-Erik Thie">
         </iframe>
 
-        <!-- Simple link for iPad / mobile -->
+        <!-- Mobile/Tablet: Simple link -->
         <p class="cv-mobile-link">
           You can find my CV <a href="CV_Thie.pdf" target="_blank" rel="noopener">here</a>.
         </p>
+
       </div>
 
       <div class="col-md-1"></div>
