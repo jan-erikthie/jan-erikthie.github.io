@@ -92,6 +92,24 @@
       text-decoration: none;
     }
 
+    .cv-link-block {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 80px;
+    }
+
+    .cv-link-block a {
+      font-weight: 600;
+      font-size: 22px;
+      color: #8B0000;
+      text-decoration: none;
+    }
+
+    .cv-link-block a:hover {
+      color: #00b2b2;
+      text-decoration: none;
+    }
+
     /* CV viewer */
     .cv-wrap {
       text-align: center;
@@ -193,25 +211,15 @@
 
       <div class="col-md-1"></div>
 
-      <div class="col-xs-12 col-md-10 cv-wrap">
+      <div class="col-xs-12 col-md-10">
 
         <h1 class="visually-hidden">CV</h1>
 
-        <!-- Inline viewer for desktop -->
-        <iframe
-          class="cv-embed"
-          src="CV_Thie.pdf#view=FitH"
-          title="CV of Jan-Erik Thie">
-        </iframe>
+        <div class="cv-link-block">
+          You can find my CV  
+          <a href="CV_Thie.pdf" target="_blank" rel="noopener">here</a>.
+        </div>
 
-        <!-- Button for iPad / mobile -->
-        <a
-          class="cv-download btn btn-default"
-          href="CV_Thie.pdf"
-          target="_blank"
-          rel="noopener">
-          Open CV (PDF)
-        </a>
       </div>
 
       <div class="col-md-1"></div>
