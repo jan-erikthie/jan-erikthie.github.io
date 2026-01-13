@@ -92,6 +92,30 @@
       text-decoration: none;
     }
 
+    /* CV viewer */
+    .cv-wrap {
+      text-align: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Desktop / large screens: big inline viewer */
+    .cv-embed {
+      display: block;
+      width: 100%;
+      height: 85vh;
+      margin: 0 auto;
+      border: none;
+    }
+
+    /* Fallback button (hidden by default on desktop) */
+    .cv-download {
+      display: none;
+      margin-top: 40px;
+      font-size: 18px;
+      padding: 12px 24px;
+    }    
+
     /* Content layout (like your research page) */
     .page-title {
       text-align: center;
@@ -116,6 +140,14 @@
       .nav-links { text-align: center; }
       .nav-links a { padding: 6px 8px; }
 
+      .cv-embed {
+        display: none;
+      }
+
+      .cv-download {
+        display: inline-block;
+      }
+            
       .content { padding-left: 15px; padding-right: 15px; }
     }
 
