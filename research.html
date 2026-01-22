@@ -119,15 +119,22 @@
     }
 
       /* Abstract toggle */
-    .abstract-toggle {
+    /*.abstract-toggle {
       cursor: pointer;
       font-size: 14px;
       color: #71797E;
       margin-top: 6px;
       display: inline-flex;
       align-items: center;
-    }
+    }*/
 
+    .abstract-toggle {
+      display: block;
+      margin-top: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #71797E;
+    }
     .abstract-toggle:hover {
       color: #00b2b2;
     }
@@ -246,7 +253,7 @@
             sectors can reduce the macroeconomic risks of both carbonflation and shockflation. 
             </p>
           </div>
-
+ 
           <span class ="presentation-list"> 
           <strong>Presented at:</strong> 
           ASSA Annual Meeting, Input-Output Workshop, EAERE Conference, The Political Economy of International Money Conference, PRSE Potsdam, Eastern Economic Association Conference, Berlin Climate Makro Workshop, 
@@ -275,9 +282,20 @@
             Towards a public sustainable finance paradigm for the green transition
           </a>
           <span class = "pub-meta"> joint with Philipp Golka and Steffen Murau</span>
-          <span class="journal">Finance and Society</span>
-          <span class="journal-meta">, 10:38–50, 2024.</span>
-          
+
+          <span class="journal">Finance and Society</span><span class="journal-meta">, 10:38–50, 2024.</span>
+
+          <div class="abstract-toggle" onclick="toggleAbstract(this)">
+            <span class="abstract-arrow">▶</span>
+            <span>Abstract</span>
+          </div>
+
+          <div class="abstract-content">
+            <p>
+              Climate change and geopolitical tensions render supply shocks more likely,
+              which can trigger inflation (shockflation). …
+            </p>
+          </div>
         </p>
 
         <p class="outreach-item" style="padding-top: 10px;">

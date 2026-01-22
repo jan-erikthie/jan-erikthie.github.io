@@ -209,15 +209,15 @@ body {
 }
     
 .journal {
-  display: inline;
+  font-style: italic;
   font-weight: 700;
-  font-style: italic; /* optional */
+  display: inline;
 }
 
 .journal-meta {
-  font-weight: normal;
   font-style: normal;
-  display: inline;       /* stays on same line as comma */
+  font-weight: normal;
+  display: inline;
 }
 
 .presentation-list {
