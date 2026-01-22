@@ -203,8 +203,6 @@ body {
   .containerKontakt { border-left-style: none; height: 100%; }
 }
 
-
-
 .pub-meta {
   display: block;
   margin-top: 4px;
@@ -214,6 +212,12 @@ body {
   display: block;
   font-weight: 700;
   font-style: italic; /* optional */
+}
+
+.journal-meta {
+  font-weight: normal;
+  font-style: normal;
+  display: inline;       /* stays on same line as comma */
 }
 
 .presentation-list {
@@ -240,4 +244,6 @@ body {
   white-space: nowrap;
   border: 0;
 }
+
+
 
