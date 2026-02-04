@@ -211,6 +211,7 @@ body {
 .course-meta {
   display: block;
   margin-top: 4px;
+  font-weight: 500;
   color: black; 
 }
 
