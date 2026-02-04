@@ -207,7 +207,14 @@ body {
   display: block;
   margin-top: 4px;
 }
-    
+
+.course-meta {
+  display: block;
+  margin-top: 4px;
+  color: black; 
+}
+
+
 .journal {
   font-style: italic;
   font-weight: 700;
