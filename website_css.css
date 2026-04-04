@@ -41,7 +41,7 @@ body {
   text-align: center;
 }
 
-/* Bootstrap overrides (keep if you rely on them) */
+/* Bootstrap overrides */
 .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
@@ -59,8 +59,7 @@ body {
   z-index: 30;
 }
 
-/* Burger icon button
-   Hidden by default on desktop */
+/* Burger icon button */
 .containerBar {
   display: none;
   cursor: pointer;
@@ -73,6 +72,11 @@ body {
   flex-direction: column;
   background: transparent;
   border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  z-index: 2001;
+  pointer-events: auto;
 }
 
 /* Burger icon lines */
@@ -102,8 +106,7 @@ body {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Burger menu panel
-   Hidden by default */
+/* Burger menu panel */
 .BurgerMenu {
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
   opacity: 0;
@@ -111,9 +114,9 @@ body {
   pointer-events: none;
   position: absolute;
   top: calc(100% + 10px);
-  left: 10px;
+  left: 0;
   background-color: #e8e7e1;
-  z-index: 25;
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -269,29 +272,91 @@ body {
   border: 0;
 }
 
-/* Desktop: hide burger menu completely */
+/* Header layout for pages using .site-header */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.desktop-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* Desktop */
 @media only screen and (min-width: 769px) {
-  .containerMenu {
-    display: none;
+  .desktop-nav {
+    display: flex !important;
   }
 
+  .mobile-nav,
+  .containerMenu,
+  .containerBar,
   .BurgerMenu {
-    display: none;
-  }
-
-  .containerBar {
-    display: none;
+    display: none !important;
   }
 }
 
-/* Tablet + mobile: show burger menu */
+/* Tablet + mobile */
 @media only screen and (max-width: 768px) {
+  body {
+    padding-top: 135px;
+  }
+
+  .header-inner {
+    padding: 10px 0 8px 0;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  /* Hide desktop nav on mobile */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  /* Also hide the desktop nav if the HTML only uses .nav-links */
+  .nav-links.text-right {
+    display: none !important;
+  }
+
+  /* Show burger block */
+  .mobile-nav {
+    display: block !important;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    z-index: 2000;
+  }
+
   .containerMenu {
-    display: block;
+    display: block !important;
+    position: relative;
+    z-index: 2000;
+    float: none;
   }
 
   .containerBar {
-    display: flex;
+    display: flex !important;
+  }
+
+  .BurgerMenu {
+    left: 0;
   }
 
   .containerGrafik {
@@ -320,113 +385,6 @@ body {
 
   .containerCover {
     margin-top: 72px;
-  }
-}
-
-/* Header layout for pages using .site-header */
-.header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.desktop-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.mobile-nav {
-  display: none;
-}
-
-/* Desktop: show normal nav, hide mobile burger block */
-@media only screen and (min-width: 769px) {
-  .desktop-nav {
-    display: flex;
-  }
-
-  .mobile-nav {
-    display: none;
-  }
-}
-
-/* Tablet + mobile: show burger block, hide normal nav */
-@media only screen and (max-width: 768px) {
-  .header-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .brand {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 8px;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .mobile-nav {
-    display: block;
-    position: absolute;
-    top: 8px;
-    left: 0;
-  }
-
-  .BurgerMenu {
-    left: 0;
-  }
-}
-
-.header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.desktop-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.mobile-nav {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding-top: 135px;
-  }
-
-  .header-inner {
-    padding: 10px 0 8px 0;
-  }
-
-  .header-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .brand {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 4px;
-  }
-
-  .desktop-nav {
-    display: none !important;
-  }
-
-  .mobile-nav {
-    display: block !important;
-    position: absolute;
-    top: 8px;
-    left: 0;
   }
 
   .content {
