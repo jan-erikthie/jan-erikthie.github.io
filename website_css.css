@@ -380,3 +380,57 @@ body {
     left: 0;
   }
 }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.desktop-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 135px;
+  }
+
+  .header-inner {
+    padding: 10px 0 8px 0;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: block !important;
+    position: absolute;
+    top: 8px;
+    left: 0;
+  }
+
+  .content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
