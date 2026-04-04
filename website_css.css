@@ -322,3 +322,61 @@ body {
     margin-top: 72px;
   }
 }
+
+/* Header layout for pages using .site-header */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.desktop-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* Desktop: show normal nav, hide mobile burger block */
+@media only screen and (min-width: 769px) {
+  .desktop-nav {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* Tablet + mobile: show burger block, hide normal nav */
+@media only screen and (max-width: 768px) {
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 0;
+  }
+
+  .BurgerMenu {
+    left: 0;
+  }
+}
