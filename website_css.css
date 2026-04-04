@@ -15,6 +15,8 @@ body {
 /* Header bar (legacy) */
 .myHeadBar {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 20;
   width: 100%;
   background-color: green;
@@ -23,7 +25,8 @@ body {
   margin-bottom: 100px;
   padding-top: 30px;
   display: block;
-  height: 7.5vw; /* fixed: was 7,5vw */
+  min-height: 7.5vw;
+  box-sizing: border-box;
 }
 
 /* Header (legacy) */
@@ -49,62 +52,45 @@ body {
   margin-right: 0px;
 }
 
-/* Burger menu (legacy) */
+/* Burger menu container */
 .containerMenu {
-  display: inline;
   float: left;
+  position: relative;
+  z-index: 30;
 }
 
-.BurgerMenu {
-  transition-duration: 0.4s;
-  transition-timing-function: ease-out;
-  opacity: 0;
-  visibility: hidden;
-  position: static;
-  height: 0px;
-  padding-left: 10px;
-  background-color: #e8e7e1;
-  z-index: -1;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  margin-top: 35px;
-  cursor: pointer;
-  width: 60px;
-}
-
-.BurgerMenu > a {
-  padding: 15px;
-  text-align: left;
-  line-height: 15px;
-  font-size: 20px;
-  font-size-adjust: auto;
-  font-weight: lighter;
-  background-color: #e8e7e1;
-  width: 60vw;
-  -webkit-transition: background-color;
-  text-decoration: none;
-  color: #1e1e1e;
-}
-
+/* Burger icon button
+   Hidden by default on desktop */
 .containerBar {
+  display: none;
   cursor: pointer;
-  height: 21px;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: transparent;
+  border: none;
 }
 
+/* Burger icon lines */
 .bar1,
 .bar2,
 .bar3 {
   width: 30px;
-  height: 1px;
+  height: 2px;
   background-color: #333;
-  margin: 8px;
+  margin: 4px 0;
   transition: 0.4s;
+  display: block;
 }
 
+/* Burger animation */
 .change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-6px, 5px);
-  transform: rotate(-45deg) translate(-6px, 5px);
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(-45deg) translate(-5px, 6px);
 }
 
 .change .bar2 {
@@ -112,22 +98,57 @@ body {
 }
 
 .change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-7px, -7px);
-  transform: rotate(45deg) translate(-7px, -7px);
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
-.change .BurgerMenu {
-  opacity: 1;
-  visibility: visible;
-  height: 1500px;
+/* Burger menu panel
+   Hidden by default */
+.BurgerMenu {
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 10px;
+  background-color: #e8e7e1;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: min(80vw, 320px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transform: translateY(-8px);
+}
+
+/* Burger menu links */
+.BurgerMenu > a {
+  display: block;
+  padding: 15px 18px;
+  text-align: left;
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: lighter;
+  background-color: #e8e7e1;
+  text-decoration: none;
+  color: #1e1e1e;
+  transition: background-color 0.25s ease;
+  box-sizing: border-box;
   width: 100%;
 }
 
 .BurgerMenu > a:hover {
-  width: 2000px;
   background-color: #ffffff;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+}
+
+/* Show menu only when parent has .change */
+.change .BurgerMenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* Content containers (legacy) */
@@ -147,6 +168,7 @@ body {
   width: 100%;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  box-sizing: border-box;
 }
 
 .containerGrafik {
@@ -168,6 +190,7 @@ body {
   height: 200px;
   width: 100%;
   border-left-style: solid;
+  box-sizing: border-box;
 }
 
 .Kontakttext {
@@ -197,12 +220,6 @@ body {
   background-color: #e8e7e1;
 }
 
-@media only screen and (max-width: 768px) {
-  .containerGrafik { display: none; }
-  .Kontakttext { float: left; }
-  .containerKontakt { border-left-style: none; height: 100%; }
-}
-
 .pub-meta {
   display: block;
   margin-top: 4px;
@@ -212,9 +229,8 @@ body {
   display: block;
   margin-top: 4px;
   font-weight: 500;
-  color: black; 
+  color: black;
 }
-
 
 .journal {
   font-style: italic;
@@ -232,7 +248,7 @@ body {
   display: block;
   font-size: 12px;
   margin-top: 4px;
-  color: #555; 
+  color: #555;
 }
 
 .media-coverage {
@@ -253,5 +269,56 @@ body {
   border: 0;
 }
 
+/* Desktop: hide burger menu completely */
+@media only screen and (min-width: 769px) {
+  .containerMenu {
+    display: none;
+  }
 
+  .BurgerMenu {
+    display: none;
+  }
 
+  .containerBar {
+    display: none;
+  }
+}
+
+/* Tablet + mobile: show burger menu */
+@media only screen and (max-width: 768px) {
+  .containerMenu {
+    display: block;
+  }
+
+  .containerBar {
+    display: flex;
+  }
+
+  .containerGrafik {
+    display: none;
+  }
+
+  .Kontakttext {
+    float: left;
+  }
+
+  .containerKontakt {
+    border-left-style: none;
+    height: 100%;
+  }
+
+  .myHeadBar {
+    min-height: 72px;
+    padding-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .myHeadElements {
+    padding: 10px;
+  }
+
+  .containerCover {
+    margin-top: 72px;
+  }
+}
