@@ -113,37 +113,44 @@ body {
   visibility: hidden;
   pointer-events: none;
   position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  background-color: #e8e7e1;
+  top: calc(100% + 6px);
+  right: 0;
+  left: auto;
+  background-color: white;
   z-index: 2000;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
-  width: min(80vw, 320px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  width: auto;
+  border: 1px solid #858587;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 /* Burger menu links */
 .BurgerMenu > a {
   display: block;
-  padding: 15px 18px;
+  padding: 10px 20px;
   text-align: left;
   line-height: 1.2;
-  font-size: 18px;
-  font-weight: lighter;
-  background-color: #e8e7e1;
+  font-size: 17px;
+  font-weight: normal;
+  background-color: white;
   text-decoration: none;
-  color: #1e1e1e;
-  transition: background-color 0.25s ease;
+  color: #71797E;
+  transition: color 0.2s ease;
   box-sizing: border-box;
-  width: 100%;
+  white-space: nowrap;
 }
 
 .BurgerMenu > a:hover {
-  background-color: #ffffff;
+  color: #00b2b2;
+}
+
+.BurgerMenu > a.active {
+  color: #000;
+  font-weight: 600;
 }
 
 /* Show menu only when parent has .change */
@@ -307,22 +314,27 @@ body {
 /* Tablet + mobile */
 @media only screen and (max-width: 1024px) {
   body {
-    padding-top: 135px;
+    padding-top: 70px;
   }
 
   .header-inner {
-    padding: 10px 0 8px 0;
+    padding: 0;
   }
 
-  .header-row {
-    flex-direction: column;
+  /* Make inner header row flex: brand left, burger right on the same line */
+  .header-inner .col-xs-12 > .row {
+    display: flex !important;
     align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    padding: 0 12px;
   }
 
   .brand {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 4px;
+    text-align: left;
+    width: auto;
+    flex: 1;
+    margin-bottom: 0;
   }
 
   /* Hide desktop nav on mobile */
@@ -335,12 +347,11 @@ body {
     display: none !important;
   }
 
-  /* Show burger block */
+  /* Show burger — in flow (not absolute) so it sits beside the brand */
   .mobile-nav {
     display: block !important;
-    position: absolute;
-    top: 8px;
-    left: 0;
+    position: static;
+    flex-shrink: 0;
     z-index: 2000;
   }
 
@@ -353,10 +364,6 @@ body {
 
   .containerBar {
     display: flex !important;
-  }
-
-  .BurgerMenu {
-    left: 0;
   }
 
   .containerGrafik {
