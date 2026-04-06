@@ -151,7 +151,7 @@
     .outreach-item { margin: 0 0 14px 0; }
 
     /* Mobile adjustments */
-    @media (max-width: 767px) {
+    @media (max-width: 1024px) {
       body { padding-top: 135px; }
       .header-inner { padding: 10px 0 8px 0; }
       .brand { text-align: center; margin-bottom: 4px; }
@@ -254,6 +254,22 @@
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script>
+    function toggleMenu(btn) {
+      var menu = btn.closest('.containerMenu');
+      menu.classList.toggle('change');
+      btn.setAttribute('aria-expanded', menu.classList.contains('change'));
+    }
+    document.addEventListener('click', function(e) {
+      var menu = document.querySelector('.containerMenu');
+      if (menu && menu.classList.contains('change') && !menu.contains(e.target)) {
+        menu.classList.remove('change');
+        var btn = menu.querySelector('.containerBar');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 
 </body>
 </html>

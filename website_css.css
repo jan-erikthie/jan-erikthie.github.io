@@ -291,7 +291,7 @@ body {
 }
 
 /* Desktop */
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   .desktop-nav {
     display: flex !important;
   }
@@ -305,7 +305,7 @@ body {
 }
 
 /* Tablet + mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   body {
     padding-top: 135px;
   }
